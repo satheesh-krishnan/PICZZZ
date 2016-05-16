@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>piczzz</title>
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    </head>
+
+    <body>
+<h4 style="color:#0ac"><b>PICZZZ</b></h4>    
+<div class="text-left" style="padding-left:30px">
+<a href="/piczzz/" style="color:#000;"><button type="button" style="width:60px;height:25px;">Home</button></a>
+&nbsp&nbsp&nbsp
+<a href="/piczzz/about/" style="color:#000;"><button type="button" style="width:60px;height:25px;">About</button></a>
+&nbsp&nbsp&nbsp
+<a href="/piczzz/explore/" style="color:#000;"><button type="button" style="width:60px;height:25px;">Explore</button></a>
+</div>
+        <div class="text-left" style="padding-top:70px;padding-left:30px">
+        <h2 style="color:#0ad">Register With Piczzz</h2>
+       
+        {% if success %}
+        <strong>thank you for registering!</strong>
+        <a href="/piczzz/">Return to the homepage.</a><br />
+        {% else %}
+        
+
+        <form id="user_form" method="post" action=""
+                enctype="multipart/form-data">
+
+            {% csrf_token %}
+            &nbsp
+            
+            {{ userdata.as_p }}
+            <br>
+            {{ profiledata.as_p }}
+
+            
+            <br>
+            
+            <input type="submit" name="submit" value="SignUp" style="width:110px;height:35px;background-color:#0ff;" />
+        </form>
+        {% endif %}
+        </div>
+    </body>
+</html>

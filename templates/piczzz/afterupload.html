@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+    <head>
+{% load staticfiles %}
+        <title>piczzz</title>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+
+    </head>
+
+    <body>
+<a href="">Back To Home</a>
+<h4><b>Uploaded Successfully</b><h4>
+<h4>{{ picname }}<h4>
+<a href="/piczzz/display/{{ path }}"><img   src="{{ media_profile }}/{{ path }}/"  /></a>
+</body>

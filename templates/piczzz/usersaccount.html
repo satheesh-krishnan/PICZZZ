@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>piczzz</title>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+
+    </head>
+<body>
+<form id="pic_form" method="post" action=""
+                enctype="multipart/form-data">
+{% csrf_token %}
+<h4 style="color:#0ac"><b>PICZZZ</b></h4>                
+<div class="text-left" style="padding-left:30px;">
+<a href="/piczzz/userhome/" style="color:#000"><button type="button" style="width:60px;height:25px;" >Home</button></a>&nbsp&nbsp&nbsp
+<a href="/piczzz/about/" style="color:#000"><button type="button" style="width:60px;height:25px;" >About</button></a>&nbsp&nbsp&nbsp
+<a href="/piczzz/explore/" style="color:#000"><button type="button" style="width:60px;height:25px;" >Explore</button></a>
+</div>
+<div class="text-right" style="padding-right:10px">
+<a href="/piczzz/logout/" style="color:#000"><button type="button" style="width:60px;height:25px;" >Logout</button></a>
+</div>
+<div class="text-center" style="color:#0ac">
+<h1><em>user profile</em></h1></div>
+<div class="text-left" style="padding-left:30px;">
+<img   src="{{ media_profile }}/{{ profile_picture }}/" style="width:180px;height:200px;"  />
+<h1 id="username" style="color:#0ac;"> {{username}} </h1>
+<input type="button" name="submit" value="{{ followvalue }}" id="followpeople" style="visibility:{{ visibility }};" />
+<table>
+<tr>
+<td><div id="following"><b>following {{ following }}</b>&nbsp</div></td>
+<td><div id="followers"><b>followers {{ followers }}</b></div></td>
+<td><table>
+<tr><strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspFull Name:</strong>{{ fullname }}</tr></br>
+<tr><strong>&nbsp&nbsp&nbsp&nbsp&nbsp&nbspEmail Address:</strong>{{ email }}</tr>
+</table></td>
+</tr>
+</table>
+
+<h2 style="color:#0ac;">Picture Uploads</h2>
+{% if uploadlist %}
+<table>
+{% for pic in uploadlist %}
+<tr><td><a href="/piczzz/display/{{ pic.0 }}/"><img   src="{{ media_profile }}/{{ pic.0 }}/" style="width:200px;height:200px;border:1px" /></a></td>
+    <td><h4>&nbsp{{ pic.1 }}</h4></td></tr>
+{% endfor %}
+</table>
+{% else %}
+<h4>No Uploads Yet</h4>
+{% endif %}
+<script type="text/javascript" src="/static/jquery/jquery.js"></script>
+<script type="text/javascript" language="javascript" src="/static/useraccount.js"></script>
+</form>
+</div>
+    </body>
+</html>

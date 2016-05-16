@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+{% load staticfiles %}
+        <title>piczzz</title>
+<link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+
+    </head>
+
+    <body>
+<form id="pic_form" method="post" action=""
+                enctype="multipart/form-data">
+<h4 style="color:#0ac"><b>PICZZZ</b></h4>                
+<div class="text-left" style="padding-left:30px;">
+<a href="/piczzz/about/" style="color:#000"><button type="button" style="width:60px;height:25px;" >About</button></a> &nbsp&nbsp&nbsp                   
+<a href="/piczzz/explore/" style="color:#000"><button type="button" style="width:60px;height:25px;" >Explore</button></a>
+&nbsp&nbsp&nbsp
+
+<div class="text-right" style="padding-right:10px">
+
+{{ search.search }}
+<input  type="submit" value="search" style="color:#000">
+<a href="/piczzz/logout/" style="color:#000"><button type="button" style="width:60px;height:25px;" >Logout</button></a>
+</div>
+</div>
+<div class="text-center" style="color:#0ac">
+<h1><em>profile</em></h1></div>
+<div class="text-left" style="padding-left:30px;">
+<h1 style="color:#06c"> {{user.username}} </h1>
+
+<table>
+<tr>
+<td><img   src="{{ media_profile }}/{{ profile_picture }}/" style="width:150px;height:200px;" /></td>
+<td><table><tr><td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="/piczzz/youralbum/"><button type="button" style="width:190px;height:25px;background-color:#9ff;color:#000;" >Your Album</button></a></a></td></tr>
+<tr><td><br><a href="/piczzz/followingpeople/">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" style="width:190px;height:25px;background-color:#9ff;color:#000;" >People You Follow</button></a></td></tr>
+<tr><td><br><a href="/piczzz/followingpics/">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="button" style="width:190px;height:25px;background-color:#9ff;color:#000;" >Pics You Follow</button></a></td></tr>
+</table>
+</tr>
+</table>
+
+<table>
+<tr>
+<td><div id="following"><b>Following {{ following }}</b></div></td>
+<td><div id="followers">&nbsp&nbsp&nbsp<b>Followers {{ followers }}</b></div></td>
+
+
+</tr>
+</table>
+<table>
+<br>
+<br>
+<tr><strong>Full Name:</strong>{{ fullname }}</tr></br>
+<tr><strong>Email Address:</strong>{{ email }}</tr>
+</table>
+</div>
+{% csrf_token %}
+<div class="text-left" style="padding-top:30px;padding-left:500px;">
+         
+            {{ picdata }}<br>
+<input type="submit" name="submit" value="Upload" style="width:100px;height:25px;background-color:#0ff;" />
+        
+{% if upload_success %}
+
+
+<div><br/><b>uploaded successfully</b></div>
+<h3>{{ picname  }}</h3>
+<a href="/piczzz/display/{{ uploaded_pic }}/"><img src="{{ media_profile }}/{{ uploaded_pic }}/" style="width:260px;height:310px;" />
+
+{% endif %}
+</div>
+</div>
+</form>
+</div>
+    </body>
+</html>

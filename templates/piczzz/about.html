@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+{% load staticfiles %}
+        <title>piczzz</title>
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    </head>
+<body>
+<h4 style="color:#0ac"><b>PICZZZ</b></h4>                
+<div class="text-left" style="padding-left:30px;">
+{% if checklog %}
+<a href="/piczzz/userhome/" style="color:#000"><button type="button" style="width:60px;height:25px;" >Home</button></a>&nbsp&nbsp&nbsp
+{% else %}
+<a href="/piczzz/" style="color:#000"><button type="button" style="width:60px;height:25px;" >Home</button></a>&nbsp&nbsp&nbsp
+{% endif %}
+
+<a href="/piczzz/explore/" style="color:#000"><button type="button" style="width:60px;height:25px;" >Explore</button></a>
+</div>
+<div class="text-right" style="padding-right:10px">
+{% if checklog %}
+<a href="/piczzz/logout/" style="color:#000"><button type="button" style="width:60px;height:25px;" >Logout</button></a>
+{% endif %}
+</div>
+<br>
+<br>
+<div style="padding-left:30px;">
+<p>This is a simple picture sharing website through which you can upload and share pictures with your friends.</p>
+<p>If you are a registered user you could access options like following the picture you like and comment your opinion.</p>
+<p>You could also follow other people if you are a registered user.</p>
+</div>
+</body>
+</html>

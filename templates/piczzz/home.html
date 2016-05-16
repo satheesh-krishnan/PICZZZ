@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>piczzz</title>
+        <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
+    </head>
+
+<body>
+<form id="login_form" method="post" action="">
+
+<div class="text-left" style="padding-top:20px;padding-left:30px;">
+<a href="/piczzz/about/" style="color:#000;"><button type="button" style="width:60px;height:25px;" >About</button></a>
+&nbsp&nbsp&nbsp
+<a href="/piczzz/explore/" style="color:#000;"><button type="button" style="width:60px;height:25px;" >Explore</button></a>
+&nbsp&nbsp&nbsp
+<a href="/piczzz/signup/" style="color:#000;"><button type="button" style="width:60px;height:25px;">SignUp</button></a>
+
+<div class="text-right" style="padding-right:10px">{{ search.search }}
+<input  type="submit" value="search" >
+</div></div>
+<div class="text-center" >
+<div style="color:#0ac;font-size:100px;padding-top:100px;"><em>PICZZZ...</div>
+<div style="font-size:30px">Picture Sharing Site</em></div>
+</div>
+{% csrf_token %}
+            <div class="text-right" style="padding-top:120px;padding-right:10px">
+            Username: <input type="text" name="username" value="" size="30" />
+            <br />
+            Password: <input type="password" name="password" value="" size="30" />
+            <br />
+            </div>
+            <div style="padding-right:120px;" class="text-right">
+            <input type="submit" value="signin" name="signin"/>
+            </div>
+        </form>
+
+
+    </body>
+</html>
